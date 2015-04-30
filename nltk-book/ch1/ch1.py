@@ -64,6 +64,8 @@ print_common_contexts(text4, ["nation", "republic"])
 # 1.4 Counting Vocabulary
 # ==============================================================================
 
+print_separator_line()
+
 print("Length of {}: {}".format(text1, len(text1)))
 print("Size of vobaluary in {}: {}".format(text1, len(set(text1))))
 
@@ -80,6 +82,32 @@ print("Lexical diversity of {}: {}".format(text1, lexical_diversity(text1)))
 print("Number of times the word 'lol' appears in {}: {}".format(text5, text5.count("lol")))
 print("Percentage of {} that is the word 'lol': {}".format(text5, percentage(text5.count("the"), len(text5))))
 
+print_separator_line()
+
+# ==============================================================================
+# 2 Lists
+# ==============================================================================
+
+print_separator_line()
+
+print("Sentence 1: {}".format(sent1))
+print("Sentence 4 + 5: {}".format(sent4 + sent5))
+print("Sentence 9 sorted: {}".format(sorted(sent9)))
+
+print_separator_line()
+
+my_sentence = ['Python', 'lists', 'are', 'easy', '!']
+print("my_sentence: {}".format(my_sentence))
+print("my_sentence length: {}".format(len(my_sentence)))
+print("my_sentence sorted: {}".format(sorted(my_sentence)))
+print("my_sentence lexical diversity: {}".format(lexical_diversity(my_sentence)))
+print("my_sentence[3]: {}".format(my_sentence[3]))
+print("my_sentence[:2]: {}".format(my_sentence[:2]))
 
 
+# **** Note ****
+# I'm skipping the rest of section 2. There's no reason for me to keep writing all these
+# list and string operations I already know how to do.
+# **************
 
+print_separator_line()
