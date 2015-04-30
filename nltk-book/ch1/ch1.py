@@ -55,8 +55,31 @@ print_common_contexts(text2, ["monstrous", "very"])
 print_common_contexts(text4, ["nation", "republic"])
 
 
-# ****Note to self****
-# I left off here at dispersion_plot(). I had a problem installing matplotlib.
-# ********************
+# **** Note ****
+# I could not get dispersion_plot() to work because I had a problem installing matplotlib.
+# I'll try again next time it comes up in the book.
+# **************
+
+# ==============================================================================
+# 1.4 Counting Vocabulary
+# ==============================================================================
+
+print("Length of {}: {}".format(text1, len(text1)))
+print("Size of vobaluary in {}: {}".format(text1, len(set(text1))))
+
+# Determine the lexical diversity of the text.
+# (i.e. what percentage of the text is unique words)
+def lexical_diversity(text):
+  return len(set(text)) / len(text)
+
+# Get a percentage value for the given count and total
+def percentage(count, total):
+  return 100 * count / total
+
+print("Lexical diversity of {}: {}".format(text1, lexical_diversity(text1)))
+print("Number of times the word 'lol' appears in {}: {}".format(text5, text5.count("lol")))
+print("Percentage of {} that is the word 'lol': {}".format(text5, percentage(text5.count("the"), len(text5))))
+
+
 
 
