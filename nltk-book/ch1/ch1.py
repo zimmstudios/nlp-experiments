@@ -111,3 +111,104 @@ print("my_sentence[:2]: {}".format(my_sentence[:2]))
 # **************
 
 print_separator_line()
+
+# ==============================================================================
+# 3 Simple Statistics
+# ==============================================================================
+
+# ==============================================================================
+# 3.1 Frequency Distributions
+# ==============================================================================
+
+print_separator_line()
+
+fdist1 = FreqDist(text1)
+print("Frequency distribution of {}".format(text1))
+print(fdist1)
+print("Most common 50 tokens in {}".format(text1))
+print(fdist1.most_common(50))
+
+# This won't work until I can get matplotlib to work
+# fdist1.plot(50, cumulative=True)
+
+print ("Hapaxes in {} (i.e. tokens that occur only once.".format(text1))
+print(fdist1.hapaxes())
+
+print_separator_line()
+
+# ==============================================================================
+# 3.2 Fine-grained selection of words
+# ==============================================================================
+
+print_separator_line()
+
+# Print all tokens in the given text that are longer than the given length
+def print_words_over_length(text, length):
+  print("Tokens over length {} in {}".format(length, text))
+  long_words = [word for word in set(text) if len(word) > length]
+  print(sorted(long_words))
+
+print_words_over_length(text1, 15)
+print_words_over_length(text4, 15)
+print_words_over_length(text5, 15)
+
+# Print all tokens in the given text that are longer than the given length
+#   and occur more often than the given frequency
+def print_words_over_length_and_frequency(text, length, frequency):
+  print("Tokens over length {} in {} that occur more than {} times.".format(length, text, frequency))
+  fdist = FreqDist(text)
+  long_words = [word for word in set(text) if len(word) > length and fdist[word] > frequency]
+  print(sorted(long_words))
+
+print_words_over_length_and_frequency(text4, 10, 10)
+print_words_over_length_and_frequency(text5, 7, 7)
+
+print_separator_line()
+
+# ==============================================================================
+# 3.3 Collocations and Bigrams
+# ==============================================================================
+
+print_separator_line()
+
+# Bigrams = word pairs
+print(list(bigrams(['more', 'is', 'said', 'than', 'done'])))
+
+# Collocations = words that occur together unusually often
+def print_collocations(text):
+  print("Collocations in {}".format(text))
+  print(text.collocations())
+
+print_collocations(text4)
+print_collocations(text5)
+print_collocations(text8)
+
+print_separator_line()
+
+# ==============================================================================
+# 3.4 Counting other things
+# ==============================================================================
+
+print_separator_line()
+
+word_lengths = [len(word) for word in text1]
+print(word_lengths[:50])
+fdist = FreqDist(word_lengths)
+print("Frequency distribution of word lengths:")
+print(fdist1)
+
+print("Most common word lengths:")
+print(fdist.most_common())
+
+print("Most common word length:")
+most_common_word_length = fdist.max()
+print(most_common_word_length)
+
+print("Number of words of length {}:".format(most_common_word_length))
+print(fdist[most_common_word_length])
+
+print("Frequency of words of length {}:".format(most_common_word_length))
+print(fdist.freq(most_common_word_length))
+
+
+
