@@ -211,4 +211,9 @@ print("Frequency of words of length {}:".format(most_common_word_length))
 print(fdist.freq(most_common_word_length))
 
 
+# **** Note ****
+# I'm skipping section 4. I already know how to do lists and conditions in Python.
+# **************
+
+
 
