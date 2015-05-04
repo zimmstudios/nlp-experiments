@@ -215,5 +215,7 @@ print(fdist.freq(most_common_word_length))
 # I'm skipping section 4. I already know how to do lists and conditions in Python.
 # **************
 
-
+# **** Note ****
+# There was no code for section 5.
+# **************
 
